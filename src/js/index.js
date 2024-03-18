@@ -73,3 +73,16 @@ const generateGame = () => {
 };
 
 generateGame();
+
+// Обработчик события клика по карточке
+const CARDS = SELECTORS.board.children;
+
+if (CARDS) {
+  // HTMLCollection в массив
+  [...CARDS].forEach((card) => {
+    // добавление клика на отдельно взятую карточку
+    card.addEventListener("click", (event) => {
+      console.log(event.target);
+    });
+  });
+}
