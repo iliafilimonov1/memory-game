@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -8,19 +8,24 @@
     <link rel="stylesheet" href="src/css/style.css" />
   </head>
   <body>
-    <div class="game">
+    <section>
       <div class="controls">
         <button>Начать</button>
         <div class="stats">
-          <div class="moves">0 шагов</div>
-          <div class="timer">время: 0 sec</div>
+          <div class="moves">0 ходов</div>
+          <div class="timer">время: 0 сек.</div>
         </div>
       </div>
+
       <div class="board-container">
-        <div class="board" data-dimension="4"></div>
-        <div class="win">Вы выиграли!</div>
+        <div class="board" data-dimension="4">
+          <!-- Карточки рисуются здесь  -->
+        </div>
+
+        <!-- Показ успешного прохождения игры -->
+        <div class="win"></div>
       </div>
-    </div>
+    </section>
     <script type="module" src="src/js/index.js"></script>
   </body>
 </html>
