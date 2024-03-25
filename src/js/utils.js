@@ -5,7 +5,7 @@ import { STATE } from "./state.js";
  * @param {strings[]} items - Абстрактные данные для перемешивания и сортировки.
  * @returns {strings[]} - Перемешанный массив с данными.
  */
-export const shuffleAndPickRandom = (items) => {
+export const shuffleAndPickRandom = items => {
   if (!items || !Array.isArray(items)) throw new Error("Передайте эмодзи в виде массива!");
 
   // сортировка исходного массива в случайном порядке
@@ -34,7 +34,7 @@ export const increaseFlipCount = () => {
 /**
  * Сбрасывает счетчик перевернутых карт.
  */
-const resetFlipCount = () => (STATE.flippedCards = 0);
+const resetFlipCount = () => STATE.flippedCards = 0;
 
 /**
  * Проверяет, можно перевернуть карту или нет.
@@ -46,7 +46,7 @@ export const canFlip = () => STATE.flippedCards <= 2;
  * Переворачивает карту.
  * @param {HTMLElement} card - Карта для переворачивания.
  */
-export const flip = (card) => card.classList.add("flipped");
+export const flip = card => card.classList.add("flipped");
 
 /**
  * Проверяет, перевернута вторая карта или нет.
@@ -73,8 +73,8 @@ export const checkMatch = () => {
  * Отмечает перевернутые карты как совпавшие.
  * @param {NodeList} cards - Перевернутые карты, которые совпали.
  */
-export const markMatched = (cards) => {
-  cards.forEach((card) => card.classList.add("matched"));
+export const markMatched = cards => {
+  cards.forEach(card => card.classList.add("matched"));
 
   STATE.flippedCards === 2 && resetFlipCount(); // Если карточки совпали, обнуляем счетчик.
 };
@@ -85,7 +85,7 @@ export const markMatched = (cards) => {
 export const flipBack = () => {
   const unmatchedCards = document.querySelectorAll(".card:not(.matched)");
 
-  unmatchedCards.forEach((card) => card.classList.remove("flipped"));
+  unmatchedCards.forEach(card => card.classList.remove("flipped"));
 
   STATE.flippedCards = 0;
 };
@@ -94,8 +94,7 @@ export const flipBack = () => {
  * Проверяет, выиграл игрок или нет.
  * @returns {boolean} - Да/нет.
  */
-export const isGameWon = () =>
-  !document.querySelectorAll(".card:not(.flipped)").length;
+export const isGameWon = () => !document.querySelectorAll(".card:not(.flipped)").length;
 
 /**
  * Отображает сообщение о выигрыше.
