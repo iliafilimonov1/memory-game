@@ -27,6 +27,10 @@ button {
   font-size: 18px;
 }
 
+button:hover {
+  background: #5c5f70;
+}
+
 .disabled {
   color: #757575;
   cursor: not-allowed;
@@ -87,7 +91,11 @@ button {
   backface-visibility: hidden;
 }
 
-.card-back {
+.card-back:hover {
+  background: #5c5f70;
+}
+
+.card-front {
   transform: rotateY(180deg) rotateZ(50deg);
   font-size: 28px;
   user-select: none;
@@ -96,11 +104,11 @@ button {
   background: #f7f9fa;
 }
 
-.card.flipped .card-front {
+.card.flipped .card-back {
   transform: rotateY(180deg) rotateZ(50deg);
 }
 
-.card.flipped .card-back {
+.card.flipped .card-front {
   transform: rotateY(0) rotateZ(0);
 }
 
