@@ -3,7 +3,7 @@
   <p>Simple game.</p>
 </div>
 
-Demo [here](https://github.com/iliafilimonov1/memory-game).
+Demo [here](https://iliafilimonov1.github.io/memory-game/).
 
 ## Instructions 📋
 
