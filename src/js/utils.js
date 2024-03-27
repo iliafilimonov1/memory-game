@@ -1,4 +1,5 @@
 import { STATE } from "./state.js";
+import { SELECTORS } from "./selectors.js";
 
 /**
  *
@@ -43,16 +44,16 @@ const resetFlipCount = () => STATE.flippedCards = 0;
 export const canFlip = () => STATE.flippedCards <= 2;
 
 /**
- * Переворачивает карту.
- * @param {HTMLElement} card - Карта для переворачивания.
- */
-export const flip = card => card.classList.add("flipped");
-
-/**
  * Проверяет, перевернута вторая карта или нет.
  * @returns {boolean} - Да/нет.
  */
 export const isSecondCardFlipped = () => STATE.flippedCards === 2;
+
+/**
+ * Переворачивает карту.
+ * @param {HTMLElement} card - Карта для переворачивания.
+ */
+export const flip = card => card.classList.add("flipped");
 
 /**
  * Проверяет совпадение перевернутых карт.
@@ -76,7 +77,7 @@ export const checkMatch = () => {
 export const markMatched = cards => {
   cards.forEach(card => card.classList.add("matched"));
 
-  STATE.flippedCards === 2 && resetFlipCount(); // Если карточки совпали, обнуляем счетчик.
+  isSecondCardFlipped() && resetFlipCount(); // Если карточки совпали, обнуляем счетчик.
 };
 
 /**
@@ -87,7 +88,7 @@ export const flipBack = () => {
 
   unmatchedCards.forEach(card => card.classList.remove("flipped"));
 
-  STATE.flippedCards = 0;
+  resetFlipCount();
 };
 
 /**

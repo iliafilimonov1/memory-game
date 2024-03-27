@@ -2,7 +2,15 @@ import { SELECTORS } from "./selectors.js";
 import { STATE } from "./state.js";
 import { EMOJIS } from "./emojis.js";
 import { shuffleAndPickRandom } from "./utils.js";
-import { canFlip, flip, increaseFlipCount, isSecondCardFlipped, isGameWon, checkMatch, displayWinMessage } from './utils.js';
+import {
+  canFlip,
+  flip,
+  increaseFlipCount,
+  isSecondCardFlipped,
+  isGameWon,
+  checkMatch,
+  displayWinMessage,
+} from "./utils.js";
 
 /**
  * Генерирует игровое поле.
@@ -56,14 +64,15 @@ export const startGame = () => {
  * Основыне действия по переворачиванию карточки и обновления стейта.
  * @param {HTMLElement} card - Карта для переворачивания.
  */
-export const mainCardActions = card => {
-  !STATE.isGameStarted && startGame(); // Если игра еще не началась, запускаем игру.
-
+export const handleCardActions = card => {
   canFlip() && flip(card); // Переворачиваем карту, если возможно.
 
-  increaseFlipCount(); // Увеличиваем счетчик перевернутых карт и общий счетчик ходов.
+  increaseFlipCount(); // Увеличиваем счетчик ходов.
+
+  // Или так
+  // canFlip() && (flip(card), increaseFlipCount()); // Переворачиваем карту, если возможно, и увеличиваем счетчик ходов.
 
   isSecondCardFlipped() && checkMatch(); // Проверяем совпадение перевернутых карт (возвращаем в исходную позицию).
 
-  isGameWon() && displayWinMessage(); // Если игрок выиграл, отображаем сообщение о победе.
+  isGameWon() && displayWinMessage(); // Если игрок выиграл, отображаем сообщение о прохождении игры.
 };
