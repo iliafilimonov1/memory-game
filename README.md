@@ -1,6 +1,7 @@
 <div>
   <h1>Memory game app</h1>
-  <p>Simple game. Demo [here](https://github.com/iliafilimonov1/memory-game).</p>
+  <p>Simple game.</p>
+  Demo [here](https://github.com/iliafilimonov1/memory-game).
 </div>
 
 ## Instructions 📋
