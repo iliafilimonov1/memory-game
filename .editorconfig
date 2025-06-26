@@ -1,0 +1,27 @@
+# EditorConfig is awesome: https://EditorConfig.org
+root = true
+
+# Общие настройки для всех файлов
+[*]
+charset = utf-8 # Кодировка файлов UTF-8
+end_of_line = lf # Символ конца строки LF
+insert_final_newline = true # Добавлять пустую строку в конце файла
+indent_style = space # Использовать пробелы для отступов
+indent_size = 2 # Размер отступа — 2 пробела
+trim_trailing_whitespace = true # Удалять пробелы в конце строк
+
+# Для файлов Markdown не удалять пробелы в конце строк
+[*.md]
+trim_trailing_whitespace = false
+
+# Для JS файлов использовать двойные кавычки
+[*.js]
+quote_type = double
+
+# Для CSS файлов отступ 2 пробела
+[*.css]
+indent_size = 2
+
+# Для HTML файлов отступ 2 пробела
+[*.html]
+indent_size = 2
